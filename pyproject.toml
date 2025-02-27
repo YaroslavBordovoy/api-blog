@@ -1,18 +1,84 @@
-[project]
+[tool.poetry]
 name = "api-blog"
 version = "0.1.0"
 description = ""
 authors = [
-    {name = "Yaroslav Bordovoy",email = "yaroslavbordovoy@gmail.com"}
+    "Yaroslav Bordovoy yaroslavbordovoy@gmail.com"
 ]
+package-mode = false
 readme = "README.md"
-requires-python = ">=3.11"
-dependencies = [
-    "django (>=5.1.6,<6.0.0)",
-    "djangorestframework (>=3.15.2,<4.0.0)"
-]
 
+[tool.poetry.dependencies]
+python = ">=3.11"
+django = ">=5.1.6,<6.0.0"
+djangorestframework = ">=3.15.2,<4.0.0"
+python-dotenv = ">=1.0.1,<2.0.0"
+ruff = ">=0.9.8,<0.10.0"
 
 [build-system]
 requires = ["poetry-core>=2.0.0,<3.0.0"]
 build-backend = "poetry.core.masonry.api"
+
+[tool.ruff]
+line-length = 120
+exclude = [
+    "migrations",
+    "node_modules",
+    "static",
+    "templates",
+    "venv",
+    "env",
+    ".git",
+    ".idea",
+    ".venv",
+    ".dockerignore",
+    ".env",
+    ".gitignore",
+    ".classpath",
+    ".DS_Store",
+    "*.dbmdl",
+    "*.user",
+    "*.dockerignore",
+    "*.env",
+    "*.git",
+    "*.gitignore",
+    "*.project",
+    "*.settings",
+    "*.toolstarget",
+    "*.classpath",
+    "*.DS_Store",
+]
+
+[tool.ruff.lint]
+select = [
+    "E",  # PEP8 errors
+    "W",  # PEP8 warnings
+    "F",  # PyFlakes
+    "I",  # isort
+    "B",  # bugbear
+    "C4",  # mypy
+    "N",  # flake8-bugbear
+    "Q",  # flake8-quotes
+]
+
+ignore = [
+    "C901",  # function too complex
+    "W191",  # indentation contains tabs
+    "D401",  # first line should be in imperative mood
+    "E712",
+    "I001",   # isort
+    "F401",
+    "F821",
+    "B008",
+    "B904",
+    "N802",
+    "Q000"
+]
+
+[tool.isort]
+multi_line_output = 3
+line_length = 88
+include_trailing_comma = true
+force_grid_wrap = 0
+combine_as_imports = true
+lines_after_imports = 2
